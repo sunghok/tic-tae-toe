@@ -46,7 +46,7 @@ print(board)
 
 
 def row_win(board,player):
-    """check if a player wins"""
+    """check if a player wins in any row"""
     winner = False
     if np.any(np.all(board==player,axis=1)):
         return True
@@ -57,6 +57,7 @@ row_win(board, 1)
 
 #7. player 2 column win
 def col_win(board,player):
+    """check if a player wins in any column"""
     winner = False
     if np.any(np.all(board==player,axis=0)):
         return True
@@ -67,6 +68,7 @@ col_win(board, 1)
 
 
 def diag_win(board, player):
+    """check if a player wins in any diagonal"""
     if np.all(np.diag(board)==player):
         return True
     else:
