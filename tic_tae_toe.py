@@ -4,6 +4,7 @@ import numpy as np
 
 
 def create_board():
+    """create a 3 by 3 board"""
     board = np.zeros((3,3))
     return board
 board = create_board()
@@ -11,6 +12,7 @@ board = create_board()
 
 
 def place(board,player,position):
+    """place"""
     if board[position] == 0:
         board[position] = player
         return board
@@ -26,6 +28,7 @@ def possibilities(board):
 possibilities(board)
 
 def random_place(board, player):
+    """randomly place a player"""
     possible_placements = possibilities(board)
     if len(possible_placements) > 0:
         possible_placements = random.choice(possible_placements)
@@ -43,6 +46,7 @@ print(board)
 
 
 def row_win(board,player):
+    """check if a player wins"""
     winner = False
     if np.any(np.all(board==player,axis=1)):
         return True
